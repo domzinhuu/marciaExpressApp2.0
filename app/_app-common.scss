@@ -1,0 +1,73 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import '~nativescript-theme-core/scss/light';
+
+$green: #00a65a;
+
+@import '~nativescript-theme-core/scss/index';
+
+Dialog[input]{
+  background-color: $green;
+}
+.brand-name {
+  font-size: 38;
+  font-family: 'Raleway-Medium', sans-serif;
+  color: #fff;
+}
+
+.action-bar {
+  background-color: $green;
+
+  color: $white;
+
+  .action-title {
+    font-family: 'Raleway-Bold', sans-serif;
+    font-size: 22;
+  }
+}
+
+.btn-default {
+  width: 180;
+  height: 60;
+}
+
+.btn-sm {
+  width: 150;
+  height: 50;
+  font-size: 12;
+}
+
+.btn-primary {
+  &.btn-black {
+    background-color: #333;
+  }
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-green {
+  color: $green;
+}
+
+.text-grey{
+  color: #333;
+}
+
+.raleway-medium{
+  font-family: 'Raleway-Medium', sans-serif;
+}
+
+.raleway-bold{
+  font-family: 'Raleway-Bold', sans-serif;
+}

@@ -1,0 +1,11 @@
+{
+  "android": {
+    "v8Flags": "--expose_gc"
+  },
+  "main": "main.js",
+  "name": "tns-template-hello-world-ng",
+  "version": "4.0.1",
+  "devDependencies": {
+    "@types/lodash": "^4.14.109"
+  }
+}

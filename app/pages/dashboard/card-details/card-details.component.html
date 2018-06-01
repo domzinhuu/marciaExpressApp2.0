@@ -1,0 +1,35 @@
+<GridLayout>
+    <ActionBar class="action-bar">
+        <NavigationButton text="Back" (tap)="back()" android.systemIcon="ic_ab_back_material_dark"></NavigationButton>
+        <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+            <Label [text]="cardName" class="action-title"></Label>
+        </StackLayout>
+    </ActionBar>
+
+    <FlexboxLayout flexDirection="column" class="details-page">
+        <FlexboxLayout flexDirection="column" class="card-details-container" justifyContent="space-between" height="100%">
+            <StackLayout>
+                <StackLayout class="card-details-header">
+                    <Label [text]="month" class="card-details-title" textWrap="true"></Label>
+                </StackLayout>
+
+                <ListView [items]="fatura" class="list-group" height="90%">
+                    <ng-template let-item="item" let-odd="odd" let-even="even">
+                        <GridLayout rows="*" columns="48, *, 60" class="list-group-item">
+                            <Label class="text-muted" [text]="item.installmentActual" row="0" col="0"></Label>
+                            <Label class="text-grey raleway-medium" [text]="item.productName+' - '+item.local" row="0" col="1"></Label>
+                            <Label class="text-grey" [text]="item.value | currency:'BRL':'symbol'" row="0" col="2"></Label>
+                        </GridLayout>
+                    </ng-template>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout height="60" class="card-total">
+                <FlexboxLayout justifyContent="flex-end" class="m-r-15">
+                    <Label text="Total: " class="raleway-bold p-10 total-text" textWrap="true"></Label>
+                    <Label [text]="cardTotalValue | currency:'BRL':'symbol-narrow'" class="p-y-8 total-text" textWrap="true"></Label>
+                </FlexboxLayout>
+            </StackLayout>
+        </FlexboxLayout>
+    </FlexboxLayout>
+</GridLayout>

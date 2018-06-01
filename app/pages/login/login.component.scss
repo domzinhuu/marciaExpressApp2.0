@@ -1,0 +1,21 @@
+.page {
+  align-items: center;
+  background-color: #00a65a;
+  flex-direction: column;
+}
+.form {
+  width: 100%;
+  margin-top: 15;
+  .input {
+    padding: 10;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+
+  .checkbox {
+    margin-left: 13;
+  }
+  .btn {
+    margin: 0 50;
+  }
+}

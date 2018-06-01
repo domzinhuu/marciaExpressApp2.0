@@ -1,0 +1,58 @@
+<GridLayout>
+  <ActionBar class="action-bar">
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+      <Label text="Marcia Express" class="action-title"></Label>
+    </StackLayout>
+    <ActionItem ios.position="right" android.position="popup" text="Histórico de Compras">
+    </ActionItem>
+    <ActionItem ios.position="right" android.position="popup" text="Sobre o App">
+    </ActionItem>
+    <ActionItem ios.position="right" android.position="popup" text="Sair">
+    </ActionItem>
+  </ActionBar>
+
+  <ScrollView height="100%">
+    <FlexboxLayout flexDirection="column" class="dashboard-page">
+      <StackLayout class="welcome">
+        <Label text="Bem vindo(a)" class="text-green" textWrap="true"></Label>
+        <Label text="Usuario" textWrap="true" class="font-weight-bold raleway-medium welcome-username"></Label>
+      </StackLayout>
+
+      <FlexboxLayout class="value-container" justifyContent="space-between">
+        <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="value-month">
+          <Label text="Seu valor para:" class="text-white" fontSize="16" textWrap="true"></Label>
+          <Label text="Setembro" textWrap="true" class="text-white text-uppercase font-weight-bold" fontSize="24"></Label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="value-total">
+          <Label text="R$ 1.240,00" class="text-white font-weight-bold" fontSize="24" textWrap="true"></Label>
+          <Label text="*valor total" class="text-white raleway-medium" fontSize="14" textWrap="true"></Label>
+        </FlexboxLayout>
+      </FlexboxLayout>
+
+      <FlexboxLayout flexDirection="column" class="card-list-container">
+        <StackLayout class="card-list-header">
+          <Label text="Fatura por Cartões" class="p-l-10 font-weight-bold raleway-medium" textWrap="true"></Label>
+        </StackLayout>
+
+        <ListView [items]="faturaList" class="list-group">
+          <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <GridLayout rows="*, *, *" columns="32, *, 32" [class.odd]="odd" [class.even]="even" class="list-group-item" (tap)="goToDetails(item.name,item.id)">
+              <Image row="0" col="0" class="m-r-10" rowSpan="3" width="24" height="24" src="~/assets/invoice.png"></Image>
+
+              <Label row="0" col="1" class="raleway-bold text-grey" [text]="item.name"></Label>
+              <Label row="1" col="1" class="text-muted" [text]="item.description"></Label>
+              <Label row="2" col="1" class="text-grey" [text]="item.value | currency:'BRL':'symbol-narrow'"></Label>
+
+              <Image row="0" col="2" class="m-l-10 text-right" rowSpan="3" width="18" height="18" src="~/assets/right-arrow.png"></Image>
+            </GridLayout>
+          </ng-template>
+        </ListView>
+      </FlexboxLayout>
+
+      <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="notification-container">
+        <Label text="Faz alguma compra? envie uma notificação para facilitar no controle da sua fatura." class="text-center" textWrap="true"></Label>
+        <Button text="Enviar notificação" (tap)="sendNotification()" class="btn-primary btn-black btn-sm"></Button>
+      </FlexboxLayout>
+    </FlexboxLayout>
+  </ScrollView>
+</GridLayout>
