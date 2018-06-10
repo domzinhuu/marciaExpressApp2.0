@@ -1,0 +1,30 @@
+<GridLayout backgroundColor="#333">
+    <ActionBar class="action-bar">
+        <NavigationButton text="Back" (tap)="back()" android.systemIcon="ic_ab_back_material_dark"></NavigationButton>
+        <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+            <Label text="Sobre" class="action-title"></Label>
+        </StackLayout>
+    </ActionBar>
+
+
+    <FlexboxLayout flexDirection="column" justifyContent="space-between" backgroundColor="#FFF" borderRadius="5" padding="10" alignItems="center"
+        class="m-10">
+        <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center">
+            <FlexboxLayout justifyContent="center" alignItems="center" class="img-logo">
+                    <Image src="~/assets/sellsy.png" width="40" height="40"></Image>
+                    <Label text="Marcia Express" class="raleway-bold text-center" fontSize="24" textWrap="true"></Label>    
+            </FlexboxLayout>
+            
+            
+            <Label class="p-y-5 text-about text-center" text="Aplicativo desenvolvido para auxiliar Marcia Azevedo no controle de seus cartões."
+                textWrap="true"></Label>
+            <Label class="p-y-5 text-about text-center" text="Colabore enviando notificação quando efetuar uma compra, desta forma facilitará na hora de preparar os valores para pagamento da fatura." textWrap="true"></Label>
+            <Label class="p-y-5 text-center text-green raleway-bold destak" text="Não deixe de pagar em dia seus valores, seja um bom pagador para ter sempre os cartões a disposição."
+                textWrap="true"></Label>
+            <Label class="p-y-5 text-about text-center" text="Tem alguma sugestão? algo que queira no aplicativo?" textWrap="true"></Label>
+            <Label class="p-y-5 text-about text-center" text="Envie uma mensagem para Marcia com sua sugestão" textWrap="true"></Label>
+        </FlexboxLayout>
+
+        <Label text="&copy; Marcia express - 2018, by Maique Rosa" textWrap="true"></Label>
+    </FlexboxLayout>
+</GridLayout>

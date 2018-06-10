@@ -1,0 +1,124 @@
+[
+    [
+        {
+            "buyAt": "2018-01-07T00:00:00.000Z",
+            "local": "Marmoraria",
+            "product": "Hamburguer",
+            "value": 4500,
+            "buyAtMonth": "Janeiro",
+            "paymentMonth": "Fevereiro"
+        },
+        {
+            "buyAt": "2018-01-07T00:00:00.000Z",
+            "local": "Casas Bahia",
+            "product": "Celular",
+            "value": 110000,
+            "buyAtMonth": "Janeiro",
+            "paymentMonth": "Fevereiro"
+        },
+        {
+            "buyAt": "2018-01-12T00:00:00.000Z",
+            "local": "Lojas Americanas",
+            "product": "Ventilador",
+            "value": 18000,
+            "buyAtMonth": "Janeiro",
+            "paymentMonth": "Fevereiro"
+        }
+    ],
+    [
+        {
+            "buyAt": "2018-02-21T00:00:00.000Z",
+            "local": "Posto Pendotiba",
+            "product": "Gasolina",
+            "value": 10000,
+            "buyAtMonth": "Fevereiro",
+            "paymentMonth": "Março"
+        }
+    ],
+    [
+        {
+            "buyAt": "2018-03-05T00:00:00.000Z",
+            "local": "Posto Trevo do Outro",
+            "product": "Gasolina",
+            "value": 5000,
+            "buyAtMonth": "Março",
+            "paymentMonth": "Abril"
+        },
+        {
+            "buyAt": "2018-03-05T00:00:00.000Z",
+            "local": "Guanabara",
+            "product": "Compras",
+            "value": 20562,
+            "buyAtMonth": "Março",
+            "paymentMonth": "Abril"
+        },
+        {
+            "buyAt": "2018-03-18T00:00:00.000Z",
+            "local": "Posto Trevo do Ouro",
+            "product": "Gsolina",
+            "value": 5000,
+            "buyAtMonth": "Março",
+            "paymentMonth": "Abril"
+        },
+        {
+            "buyAt": "2018-03-24T00:00:00.000Z",
+            "local": "ClickBus",
+            "product": "Passagens",
+            "value": 13145,
+            "buyAtMonth": "Março",
+            "paymentMonth": "Abril"
+        }
+    ],
+    [
+        {
+            "buyAt": "2018-04-10T00:00:00.000Z",
+            "local": "Guanabara",
+            "product": "Mercado",
+            "value": 22287,
+            "buyAtMonth": "Abril",
+            "paymentMonth": "Maio"
+        },
+        {
+            "buyAt": "2018-04-10T00:00:00.000Z",
+            "local": "Gol de Placa",
+            "product": "Gasolina",
+            "value": 5000,
+            "buyAtMonth": "Abril",
+            "paymentMonth": "Maio"
+        },
+        {
+            "buyAt": "2018-04-13T00:00:00.000Z",
+            "local": "Americanas.com",
+            "product": "Shadow",
+            "value": 9999,
+            "buyAtMonth": "Abril",
+            "paymentMonth": "Maio"
+        },
+        {
+            "buyAt": "2018-04-29T00:00:00.000Z",
+            "local": "Click Bus",
+            "product": "Passagem",
+            "value": 23480,
+            "buyAtMonth": "Abril",
+            "paymentMonth": "Junho"
+        }
+    ],
+    [
+        {
+            "buyAt": "2018-05-10T00:00:00.000Z",
+            "local": "Udemy",
+            "product": "Curso",
+            "value": 1900,
+            "buyAtMonth": "Maio",
+            "paymentMonth": "Junho"
+        },
+        {
+            "buyAt": "2018-05-12T00:00:00.000Z",
+            "local": "Udemy",
+            "product": "Curso 2",
+            "value": 1900,
+            "buyAtMonth": "Maio",
+            "paymentMonth": "Junho"
+        }
+    ]
+]

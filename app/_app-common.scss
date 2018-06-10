@@ -24,6 +24,10 @@ Dialog[input]{
   color: #fff;
 }
 
+.bg-green{
+  background-color: $green;
+}
+
 .action-bar {
   background-color: $green;
 
@@ -64,10 +68,33 @@ Dialog[input]{
   color: #333;
 }
 
+.text-orange{
+  color: $orange;
+}
+
 .raleway-medium{
   font-family: 'Raleway-Medium', sans-serif;
 }
 
 .raleway-bold{
   font-family: 'Raleway-Bold', sans-serif;
+}
+
+
+.dimmer{
+  z-index: 999;
+  background-color: rgba($color: #212121, $alpha: .8)
+}
+
+.spinner-box{
+  height: 60;
+  margin: 16;
+  background-color: #fff;
+  border-width: 0.5;
+  border-color: $orange;
+  border-radius: 5;
+}
+
+.activity-indicator{
+  color: $orange;
 }

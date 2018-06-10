@@ -1,0 +1,43 @@
+<GridLayout>
+    <StackLayout>
+        <ActionBar class="action-bar">
+            <NavigationButton text="Back" (tap)="back()" android.systemIcon="ic_ab_back_material_dark"></NavigationButton>
+            <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+                <Label text="Histórico de Compras" class="action-title"></Label>
+            </StackLayout>
+
+            <ActionItem ios.position="right">
+                <Label [text]="actualYear" color="#FFF" class="p-r-5" fontSize="16" textWrap="true"></Label>
+            </ActionItem>
+        </ActionBar>
+
+        <FlexboxLayout flexDirection="column" class="page-container">
+
+            <ListView [items]="registerContainerList" *ngIf="registerContainerList" class="list-group">
+                <ng-template let-item="item" let-odd="odd" let-even="even">
+                    <GridLayout rows="*, *" columns="*" class="list-group-item register-list">
+                        <Label class="register-header raleway-bold" [text]="item[0].buyAtMonth+' / Lojas'" row="0" col="0"></Label>
+
+                        <StackLayout row="1" col="0" class="">
+                            <ng-template ngFor let-data [ngForOf]="item">
+                                <FlexboxLayout height="60" justifyContent="center" alignItems="center">
+                                    <FlexboxLayout class="date-col" flexDirection="column" width="40" height="40" alignItems="center" justifyContent="center">
+                                        <Label text="Dia" class="raleway-medium" textWrap="true"></Label>
+                                        <Label [text]="data.buyAt | date:'dd'" textWrap="true"></Label>
+                                    </FlexboxLayout>
+                                    <StackLayout flexGrow="1">
+                                        <Label [text]="data.product" class="raleway-medium" textWrap="true"></Label>
+                                        <Label [text]="data.local" class="body raleway-medium" textWrap="true"></Label>
+                                    </StackLayout>
+                                    <Label class="text-right p-r-5" [text]="(data.value / 100) |currency:'BRL':'symbol'" textWrap="true"></Label>
+                                </FlexboxLayout>
+                            </ng-template>
+                        </StackLayout>
+                    </GridLayout>
+                </ng-template>
+            </ListView>
+        </FlexboxLayout>
+    </StackLayout>
+
+    <mex-loading [busy]="isBusy"></mex-loading>
+</GridLayout>

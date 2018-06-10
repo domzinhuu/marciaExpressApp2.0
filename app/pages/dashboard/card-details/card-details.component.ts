@@ -19,35 +19,23 @@ export class CardDetailsComponent implements OnInit {
   year: number;
   fatura: FaturaItem[] = [];
   cardTotalValue: number = 0;
+  isBusy: boolean = false;
 
   constructor(private activedRoute: ActivatedRoute, private routerExtensions: RouterExtensions, private dataService: DataService) {}
 
   ngOnInit() {
+    this.isBusy = true;
     this.activedRoute.params.subscribe(params => {
       this.cardName = params['cardName'];
       this.cardId = params['cardId'];
+      this.month = params['month'];
+      this.year = parseInt(params['year']);
 
-      this.month = MONTHS[new Date().getMonth()];
-      this.year = new Date().getFullYear();
-
-      /*  this.dataService.getFatura(this.month, this.year, this.cardId).subscribe((result: any[]) => {
+      this.dataService.getFatura(this.month, this.year, this.cardId).subscribe((result: any[]) => {
         this.fatura = result.map(item => new FaturaItem(item, this.month, this.year));
-        this.cardTotalValue = _.sumBy(this.fatura,'value');
-      }); */
-
-      for (let index = 0; index < 10; index++) {
-        const dat = {
-          productName:'Martelo',
-          local:'Leroy Merlin',
-          installmentNumber:8,
-          installments: [
-            { paymentMonth: 'Maio', paymentYear: 2018, id: '4jh34hj345hkj', number: 4, value: 11000 },
-          ]
-        };
-        this.fatura.push(new FaturaItem(dat,this.month,this.year));
-      }
-
-      this.cardTotalValue = _.sumBy(this.fatura,'value');
+        this.cardTotalValue = _.sumBy(this.fatura, 'value');
+        this.isBusy = false;
+      });
     });
   }
 

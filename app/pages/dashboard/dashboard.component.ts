@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { showPromptDialog } from '~/core/core.variables.utils';
-import {PromptResult} from 'ui/dialogs';
+import { showPromptDialog, COMPLETE_NAME, MONTHS } from '~/core/core.variables.utils';
+import { PromptResult, alert } from 'ui/dialogs';
+import { getString } from 'tns-core-modules/application-settings/application-settings';
+import { CardsContainer } from '~/core/models/card.model';
+import { DataService } from '~/core/services/data.service';
 
 @Component({
   moduleId: module.id,
@@ -10,31 +13,48 @@ import {PromptResult} from 'ui/dialogs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  faturaList: any[] = [];
-  constructor(private routerExtensions: RouterExtensions) {
-    for (let i = 0; i < 5; i++) {
-      this.faturaList.push({ id: '298839438cj829038c4', name: 'Meu Cartão', description: 'Pagamento dia 5', value: 243.0 });
-    }
+  isBusy: boolean = false;
+  usernameLogged: string;
+  cardContainer: CardsContainer;
+  paymentMonth: string = '';
+  payDay: Date;
+
+  constructor(private routerExtensions: RouterExtensions, private dataService: DataService) {
+    this.cardContainer = new CardsContainer();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isBusy = true;
+    this.usernameLogged = getString(COMPLETE_NAME);
+
+    this.dataService.getDashboardData().subscribe((container: any) => {
+      this.cardContainer = container;
+      this.payDay = new Date(this.cardContainer.cardList[0].paymentDate);
+      this.paymentMonth = MONTHS[this.payDay.getMonth()];
+      this.isBusy = false;
+    });
+  }
 
   public back(): void {
     this.routerExtensions.back();
   }
 
   public goToDetails(cardName, cardId): void {
-    this.routerExtensions.navigate([`dashboard/details/${cardName}/${cardId}`]);
+    this.routerExtensions.navigate([`dashboard/details/${cardName}/${cardId}/${MONTHS[this.payDay.getMonth()]}/${this.payDay.getFullYear()}`]);
   }
 
   public sendNotification(): void {
     showPromptDialog(
       'Notificação',
       'Informe o que foi comprado,onde foi comprado, o cartão usado, o valor total e a quantidade de parcelas'
-    ).subscribe((res:PromptResult) => {
-      if(res.result){
-        // joga pro servidor
+    ).subscribe((res: PromptResult) => {
+      if (res.result) {
+        alert('ok o resultado é ' + res.text);
       }
     });
+  }
+
+  public logout():void{
+    this.dataService.logout();
   }
 }

@@ -1,0 +1,21 @@
+<GridLayout>
+    <FlexboxLayout flexDirection="column" class="bg-green" justifyContent="center">
+        <StackLayout>
+            <Image src="~/assets/sellsy.png" width="150"></Image>
+            <Label text="Marcia Express" class="text-center raleway-bold title" textWrap="true"></Label>
+
+            <FlexboxLayout flexDirection="column" height="100" class="m-20">
+                <TextField hint="Informe seu nome completo" [(ngModel)]="username" class="m-b-10 input" text=""></TextField>
+                <TextField hint="Informe seu telefone" keyboardType="phone" [(ngModel)]="phoneNumber" class="m-b-10 input" text=""></TextField>
+            </FlexboxLayout>
+        </StackLayout>
+
+        <StackLayout class="m-10">
+            <Button text="Enviar Solicitação" (tap)="closeModal()" class="btn btn-primary btn-orange btn-default"></Button>
+            <Button text="Cancelar" (tap)="cancelRequet()" class="btn btn-primary btn-black btn-sm"></Button>
+            <Label text="Ao solicitar o acesso use o número do seu whatsapp para receber sua senha de acesso diretamente por lá ou por SMS."
+                class="text-center body info-text raleway-medium" textWrap="true"></Label>
+
+        </StackLayout>
+    </FlexboxLayout>
+</GridLayout>

@@ -1,0 +1,8 @@
+<GridLayout rows="*">
+    <FlexboxLayout  *ngIf="busy" class="dimmer" justifyContent="center" alignItems="center">
+        <FlexboxLayout class="spinner-box" justifyContent="center" alignItems="center">
+            <ActivityIndicator width="40" [busy]="true" height="40" class="activity-indicator p-20"></ActivityIndicator>
+            <Label text="Carregando" textWrap="true" class="body p-20"></Label>
+        </FlexboxLayout>
+    </FlexboxLayout>
+</GridLayout>

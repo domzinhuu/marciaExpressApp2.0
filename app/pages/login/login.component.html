@@ -1,28 +1,40 @@
-<FlexboxLayout class="page">
-    <StackLayout height="210">
-        <Image width="150" height="150" src="~/assets/sellsy.png"></Image>
-        <Label text="Marcia Express" class="text-center brand-name" textWrap="true"></Label>
-    </StackLayout>
-    <StackLayout class="form">
-        <StackLayout class="input-field p-x-20">
-            <TextField hint="Digite seu login" autocapitalizationType="none" class="input"></TextField>
+<GridLayout>
+    <FlexboxLayout class="page">
+        <StackLayout height="210">
+            <Image width="150" height="150" src="~/assets/sellsy.png"></Image>
+            <Label text="Marcia Express" class="text-center brand-name" textWrap="true"></Label>
         </StackLayout>
+        <StackLayout class="form">
 
-        <StackLayout class="input-field p-x-20">
-            <TextField secure="true" hint="Digite sua senha" class="input"></TextField>
+            <StackLayout class="text-center" *ngFor="let error of formErrors">
+                    <Label class="text-danger" [text]="error" textWrap="true"></Label>
+            </StackLayout>
+
+
+
+            <StackLayout class="input-field p-x-20">
+                <TextField hint="Digite seu login" [(ngModel)]="username" minLength="2" required #usernameModel="ngModel" autocapitalizationType="none"
+                    class="input"></TextField>
+                <Label class="text-danger" text="Este campo é obrigatorio" *ngIf="usernameModel.invalid && submited" textWrap="true"></Label>
+            </StackLayout>
+
+            <StackLayout class="input-field p-x-20">
+                <TextField secure="true" hint="Digite sua senha" [(ngModel)]="password" required #passwordModel="ngModel" class="input"></TextField>
+                <Label class="text-danger" text="Este campo é obrigatorio" *ngIf="passwordModel.invalid  && submited" textWrap="true"></Label>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <CheckBox fillColor="#f57c00" color="#fff" class="checkbox" #check (checkedChange)="toggleRememberMe(check)" text="Lembrar de mim" [checked]="rememberMe"></CheckBox>
+            </StackLayout>
+
+            <Button text="Entrar" (tap)="login()" [isEnabled]="usernameModel.valid && passwordModel.valid" class="btn btn-primary btn-orange btn-default"></Button>
         </StackLayout>
-
-        <StackLayout class="input-field">
-            <CheckBox fillColor="#f57c00" color="#fff" class="checkbox" text="Lembrar de mim" checked="true"></CheckBox>
-        </StackLayout>
-
-        <Button text="Entrar" [nsRouterLink]="['/dashboard']" class="btn btn-primary btn-orange btn-default"></Button>
-    </StackLayout>
 
         <StackLayout height="120" class="m-t-30">
             <Label row="0" textWrap="true" class="text-center text-white" text="Não tem acesso? Solicite aqui"></Label>
-            <Button row="1" text="Solicitar Acesso" class="btn btn-primary btn-black btn-sm"></Button>
+            <Button row="1" text="Solicitar Acesso" (tap)="requestAccess()" class="btn btn-primary btn-black btn-sm"></Button>
         </StackLayout>
+    </FlexboxLayout>
 
-
-</FlexboxLayout>
+    <mex-loading [busy]="isBusy"></mex-loading>
+</GridLayout>
