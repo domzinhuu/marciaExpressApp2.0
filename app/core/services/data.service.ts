@@ -77,9 +77,9 @@ export class DataService {
     };
   }
 
-  public requestAcess(message: string): Observable<any> {
+  public sendNotify(userId = null,message: string,description = ''): Observable<any> {
     const url = `${API_ENDPOINT}/registers/save/notify`;
-    const notify = new Notify(null,message);
+    const notify = new Notify(userId,message,description);
     return this.httpClient.post<any>(url,notify);
   }
 

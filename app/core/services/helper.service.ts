@@ -3,11 +3,12 @@ import * as Toast from 'nativescript-toast';
 
 @Injectable()
 export class HelperService {
+  constructor() {}
 
-    constructor() { }
-
-
-    public showToast(message:string,duration = 3000):void{
-        Toast.makeText(message,duration.toString()).show();
-    }
+  public showToast(message: string, duration = 3000): void {
+    console.log(duration);
+    const toast = Toast.makeText(message);
+    toast.setDuration(duration);
+    toast.show();
+  }
 }

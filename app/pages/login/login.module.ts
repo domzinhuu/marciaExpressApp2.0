@@ -9,11 +9,12 @@ import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { SharedModule } from '~/shared/shared.module';
 import { ModalDialogService } from "nativescript-angular/directives/dialogs";
 import { RequestAccessModalComponent } from '~/pages/login/request-access.modal/request-access-modal.component';
+import { EasterEggComponent } from '~/pages/login/easter-egg/easter-egg.component';
 
 @NgModule({
   imports: [LoginRoutingModule, TNSCheckBoxModule,NativeScriptCommonModule,NativeScriptRouterModule,SharedModule,NativeScriptFormsModule],
   exports: [],
-  declarations: [LoginComponent,RequestAccessModalComponent],
+  declarations: [LoginComponent,RequestAccessModalComponent,EasterEggComponent],
   entryComponents:[RequestAccessModalComponent],
   providers: [ModalDialogService],
   schemas: [NO_ERRORS_SCHEMA]

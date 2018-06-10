@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   password: string;
   formErrors: string[] = [];
   submited: boolean = false;
+  activeEasterEgg: number;
 
   constructor(
     private page: Page,
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
     this.rememberMe = credentials.rememberMe;
     this.username = credentials.username;
     this.password = credentials.password;
+    this.activeEasterEgg = 10;
   }
 
   login(): void {
@@ -81,7 +83,7 @@ export class LoginComponent implements OnInit {
         const phoneNumber = res.phone;
         const username = res.username;
         const msgText = `Olá adminstrador do Marcia Express, ${username} gostaria de obter acesso ao aplicativo. Envie a senha para o numero ${phoneNumber}`;
-        this.dataService.requestAcess(msgText).subscribe(
+        this.dataService.sendNotify(null, msgText).subscribe(
           res => {
             this.isBusy = false;
             this.helpService.showToast(res.messages[0]);
@@ -92,5 +94,16 @@ export class LoginComponent implements OnInit {
         );
       }
     });
+  }
+
+  easterEgg(): void {
+    if (this.activeEasterEgg > 0) {
+      this.activeEasterEgg = this.activeEasterEgg - 1;
+
+      if (this.activeEasterEgg == 0) {
+        this.activeEasterEgg = 10;
+        this.routerExtensions.navigate(['login/easteregg']);
+      }
+    }
   }
 }

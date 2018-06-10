@@ -1,7 +1,7 @@
 <GridLayout>
     <FlexboxLayout class="page">
         <StackLayout height="210">
-            <Image width="150" height="150" src="~/assets/sellsy.png"></Image>
+            <Image width="150" (tap)="easterEgg()" height="150" src="~/assets/sellsy.png"></Image>
             <Label text="Marcia Express" class="text-center brand-name" textWrap="true"></Label>
         </StackLayout>
         <StackLayout class="form">
@@ -33,6 +33,8 @@
         <StackLayout height="120" class="m-t-30">
             <Label row="0" textWrap="true" class="text-center text-white" text="Não tem acesso? Solicite aqui"></Label>
             <Button row="1" text="Solicitar Acesso" (tap)="requestAccess()" class="btn btn-primary btn-black btn-sm"></Button>
+            <Label *ngIf="activeEasterEgg < 10" [text]="'Falta '+activeEasterEgg+' clicks para liberar o segredo..'" class="body text-center text-orange" textWrap="true"></Label>
+            
         </StackLayout>
     </FlexboxLayout>
 
