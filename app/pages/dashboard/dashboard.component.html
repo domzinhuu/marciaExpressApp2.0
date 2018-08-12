@@ -1,36 +1,35 @@
 <GridLayout>
-  <StackLayout>
-  <ActionBar class="action-bar">
-    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-      <Label text="Marcia Express" class="action-title"></Label>
-    </StackLayout>
-    <ActionItem ios.position="right" android.position="popup" [nsRouterLink]="['history']" text="Histórico de Compras">
-    </ActionItem>
-    <ActionItem ios.position="right" android.position="popup" [nsRouterLink]="['about']" text="Sobre o App">
-    </ActionItem>
-    <ActionItem ios.position="right" android.position="popup" (tap)="logout()" text="Sair">
-    </ActionItem>
-  </ActionBar>
+  <StackLayout height="100%">
+    <ActionBar class="action-bar">
+      <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <Label text="Marcia Express" class="action-title"></Label>
+      </StackLayout>
+      <ActionItem ios.position="right" android.position="popup" [nsRouterLink]="['history']" text="Histórico de Compras">
+      </ActionItem>
+      <ActionItem ios.position="right" android.position="popup" [nsRouterLink]="['about']" text="Sobre o App">
+      </ActionItem>
+      <ActionItem ios.position="right" android.position="popup" (tap)="logout()" text="Sair">
+      </ActionItem>
+    </ActionBar>
 
-  <ScrollView height="100%">
-    <FlexboxLayout flexDirection="column" class="dashboard-page">
-      <StackLayout class="welcome">
+    <FlexboxLayout flexDirection="column" justify-content="space-between" height="100%" class="dashboard-page">
+      <StackLayout class="welcome" height="70">
         <Label text="Bem vindo(a)" class="text-green" textWrap="true"></Label>
         <Label [text]="usernameLogged" textWrap="true" class="font-weight-bold raleway-medium welcome-username"></Label>
       </StackLayout>
 
-      <FlexboxLayout class="value-container" justifyContent="space-between">
+      <FlexboxLayout class="value-container" justifyContent="space-between" height="90">
         <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="value-month">
           <Label text="Seu valor para:" class="text-white" fontSize="16" textWrap="true"></Label>
-          <Label [text]="paymentMonth" textWrap="true" class="text-white text-uppercase font-weight-bold" fontSize="24"></Label>
+          <Label [text]="paymentMonth" textWrap="true" class="text-white text-uppercase font-weight-bold" fontSize="20"></Label>
         </FlexboxLayout>
         <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="value-total">
-          <Label [text]="cardContainer.totalPeriod | currency:'BRL':'symbol'" class="text-white font-weight-bold" fontSize="24" textWrap="true"></Label>
+          <Label [text]="cardContainer.totalPeriod | currency:'BRL':'symbol'" class="text-white font-weight-bold" fontSize="20" textWrap="true"></Label>
           <Label text="*valor total" class="text-white raleway-medium" fontSize="14" textWrap="true"></Label>
         </FlexboxLayout>
       </FlexboxLayout>
 
-      <FlexboxLayout flexDirection="column" class="card-list-container">
+      <FlexboxLayout flexDirection="column" height="60%" class="card-list-container">
         <StackLayout class="card-list-header">
           <Label text="Fatura por Cartões" class="p-l-10 font-weight-bold raleway-medium" textWrap="true"></Label>
         </StackLayout>
@@ -50,13 +49,12 @@
         </ListView>
       </FlexboxLayout>
 
-      <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="notification-container">
+      <FlexboxLayout flexDirection="column" justifyContent="center" height="120" class="notification-container">
         <Label text="Fez alguma compra? envie uma notificação para facilitar no controle da sua fatura." class="text-center" textWrap="true"></Label>
         <Button text="Enviar notificação" (tap)="sendNotification()" class="btn-primary btn-black btn-sm"></Button>
       </FlexboxLayout>
     </FlexboxLayout>
-  </ScrollView>
 
-  <mex-loading [isBusy]="isBusy"></mex-loading>
-</StackLayout>
+    <mex-loading [isBusy]="isBusy"></mex-loading>
+  </StackLayout>
 </GridLayout>

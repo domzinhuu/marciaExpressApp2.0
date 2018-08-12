@@ -15,7 +15,7 @@ $green: #00a65a;
 
 @import '~nativescript-theme-core/scss/index';
 
-Dialog[input]{
+dialog[input] {
   background-color: $green;
 }
 .brand-name {
@@ -24,7 +24,7 @@ Dialog[input]{
   color: #fff;
 }
 
-.bg-green{
+.bg-green {
   background-color: $green;
 }
 
@@ -64,29 +64,28 @@ Dialog[input]{
   color: $green;
 }
 
-.text-grey{
+.text-grey {
   color: #333;
 }
 
-.text-orange{
+.text-orange {
   color: $orange;
 }
 
-.raleway-medium{
+.raleway-medium {
   font-family: 'Raleway-Medium', sans-serif;
 }
 
-.raleway-bold{
+.raleway-bold {
   font-family: 'Raleway-Bold', sans-serif;
 }
 
-
-.dimmer{
+.dimmer {
   z-index: 999;
-  background-color: rgba($color: #212121, $alpha: .8)
+  background-color: rgba($color: #212121, $alpha: 0.8);
 }
 
-.spinner-box{
+.spinner-box {
   height: 60;
   margin: 16;
   background-color: #fff;
@@ -95,6 +94,6 @@ Dialog[input]{
   border-radius: 5;
 }
 
-.activity-indicator{
+.activity-indicator {
   color: $orange;
 }

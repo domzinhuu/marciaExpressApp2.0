@@ -1,24 +1,21 @@
 @import '../../app-common';
 
-
 .dashboard-page {
   background-color: #333;
 
   .welcome {
     margin: 10;
     padding: 5 10 5 10;
-    height: 50;
     background-color: $white;
     border-radius: 5;
 
-    .welcome-username{
-      font-size: 18;
+    .welcome-username {
+      font-size: 16;
     }
   }
 
   .value-container {
     margin: 0 10;
-    height: 80;
     background-color: $white;
     border-radius: 5;
 
@@ -35,26 +32,25 @@
   }
 
   .card-list-container {
-    height: 280;
     background-color: $white;
     border-radius: 5;
     margin: 10;
 
-    .card-list-header{
-        border-top-left-radius: 5;
-        border-top-right-radius: 5;
-        background-color: $orange;
-        vertical-align: middle;
-        height: 60;
-        color: $white;
+    .card-list-header {
+      border-top-left-radius: 5;
+      border-top-right-radius: 5;
+      background-color: $orange;
+      vertical-align: middle;
+      height: 60;
+      color: $white;
     }
   }
 
-  .notification-container{
-      margin: 10;
-      height: 90;
-      background-color: $white;
-      border-radius: 5;
-      padding: 5;
+  .notification-container {
+    margin: 0 10;
+    margin-bottom: 5;
+    background-color: $white;
+    border-radius: 5;
+    padding: 5;
   }
 }
